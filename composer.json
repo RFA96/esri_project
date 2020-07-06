@@ -1,0 +1,22 @@
+{
+    "name": "raka_matsukaze/esri_project2",
+    "description": "Project for ESRI Indonesia technical test",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raka Admiral Abdurrahman",
+            "email": "raka.admiral.abdurrahman@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "ext-json": "*"
+    },
+    "scripts": {
+        "start": "php -S localhost:8080",
+        "start80": "php -S localhost:80"
+    },
+    "config": {
+        "process-timeout": 0
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="esri_test@34.74.133.148" uuid="f534e6f2-fd98-4b79-afe8-47a7442b07e7">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://34.74.133.148:5432/esri_test</jdbc-url>
+    </data-source>
+  </component>
+</project>
