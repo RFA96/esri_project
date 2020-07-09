@@ -10,7 +10,9 @@
     ],
     "require": {
         "ext-pdo": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "symfony/dotenv": "^5.1",
+        "ext-curl": "*"
     },
     "scripts": {
         "start": "php -S localhost:8080",

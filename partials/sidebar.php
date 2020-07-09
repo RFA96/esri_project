@@ -23,12 +23,18 @@
                         <span class="nav-link-text">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fas fa-table text-success"></i>
-                        <span class="nav-link-text">Manage Data</span>
-                    </a>
-                </li>
+                <?php
+                    if($_SESSION['role'] == 'superadmin') {
+                        ?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="../pages/manage_data.php">
+                                    <i class="fas fa-table text-success"></i>
+                                    <span class="nav-link-text">Manage Data</span>
+                                </a>
+                            </li>
+                        <?php
+                    }
+                ?>
             </ul>
         </div>
     </div>

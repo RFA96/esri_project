@@ -40,6 +40,7 @@
         $sqlInsertSession->execute();
 
         $_SESSION['user_key'] = $rowLogin[0]['user_key'];
+        $_SESSION['role'] = $rowLogin[0]['role'];
         header("Location: ../pages/dashboard.php");
     } else {
         session_start();

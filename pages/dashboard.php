@@ -192,89 +192,16 @@
         </div>
 
         <?php include "../partials/assets_js.php";?>
-        <script>
-            // ArcGIS JS script
-            require([
-                "esri/Map",
-                "esri/views/MapView",
-                "esri/layers/FeatureLayer",
-                "esri/widgets/Legend"
-            ], function(Map, MapView, FeatureLayer, Legend) {
-                let featureLayer = new FeatureLayer({
-                    url: 'https://services7.arcgis.com/BRS1jOwmVPgFs2NE/arcgis/rest/services/indonesia_earthquake_list/FeatureServer'
-                });
-
-                let templatePopup = {
-                    title: "Earthquake Details",
-                    content: [{
-                        type: "fields",
-                        fieldInfos: [
-                            {
-                                fieldName: "wib_time",
-                                label: "Time"
-                            },
-                            {
-                                fieldName: "longitude",
-                                label: "Longitude"
-                            },
-                            {
-                                fieldName: "latitude",
-                                label: "Latitude"
-                            },
-                            {
-                                fieldName: "mag",
-                                label: "Magnitude (SR)"
-                            },
-                            {
-                                fieldName: "depth",
-                                label: "Depth (km)"
-                            },
-                            {
-                                fieldName: "place",
-                                label: "Location"
-                            }
-                        ]
-                    }]
-                }
-
-                featureLayer.popupTemplate = templatePopup;
-                let map = new Map({
-                    basemap: "topo-vector",
-                    layers: [featureLayer]
-                });
-
-                let view = new MapView({
-                    container: "indonesiaMap",
-                    map: map,
-                    center: [117.153709, -0.502106],
-                    zoom: 5
-                });
-                view.ui.add(new Legend({ view: view }), "top-right");
-            });
-            $(document).ready(function () {
-                $("#earthquakeTableList").DataTable({
-                    ordering: false,
-                    language: {
-                        paginate: {
-                            previous: "<i class='fas fa-angle-left'>",
-                            next: "<i class='fas fa-angle-right'>"
-                        }
-                    },
-                    ajax: {
-                        url: "../api/fetch_all_earthquake.php",
-                        type: 'POST',
-                        dataSrc: 'data'
-                    },
-                    columns: [
-                        {"data": "time"},
-                        {"data": "longitude"},
-                        {"data": "latitude"},
-                        {"data": "mag"},
-                        {"data": "depth"},
-                        {"data": "place"},
-                    ]
-                });
-            });
-        </script>
+        <?php
+            if($_SESSION['role'] == 'superadmin') {
+                ?>
+                    <script type="text/javascript" src="../assets/js/custom.js"></script>
+                <?php
+            } else {
+                ?>
+                    <script type="text/javascript" src="../assets/js/custom_display.js"></script>
+                <?php
+            }
+        ?>
     </body>
 </html>
